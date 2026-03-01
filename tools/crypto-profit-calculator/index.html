@@ -1,18 +1,49 @@
 <!doctype html><html><head>
-<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Crypto Profit Calculator - ProfitCheck</title>
-<meta name=description content="Use the Crypto Profit Calculator to calculate instantly online.">
-<link rel=stylesheet href=/style.css>
+<meta name="description" content="Use the Crypto Profit Calculator to estimate results instantly. Free online calculator.">
+<link rel="canonical" href="https://profitcheck.uk/tools/crypto-profit-calculator/">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Google AdSense (replace ca-pub-XXXX with yours) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Crypto Profit Calculator","applicationCategory":"FinanceApplication"}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Crypto Profit Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://profitcheck.uk/tools/crypto-profit-calculator/"}</script>
 </head><body>
 <header><a href="/">ProfitCheck</a></header>
-<div class=wrap><div class=card id=app></div></div>
+
+<div class="wrap">
+  <div class="card" id="app"></div>
+
+  <div class="card">
+    <h2>More calculators</h2>
+    <p><a href="/categories/general/">General calculators</a></p>
+    <p><a href="/">All categories</a></p>
+  </div>
+</div>
+
 <script>
 const c={"name":"Crypto Profit Calculator","fields":[["buy","Buy price"],["sell","Sell price"],["amt","Amount"]],"formula":"(sell-buy)*amt"};
 let html='<h1>'+c.name+'</h1>';
-c.fields.forEach(f=>html+='<label>'+f[1]+'</label><input id="'+f[0]+'" type=number>');
-html+='<button onclick=calc()>Calculate</button><div class=result id=res></div>';
+if(c.description){ html+='<p style="color:#555;margin-top:-6px">'+c.description+'</p>'; }
+
+c.fields.forEach(f=>{
+  html+='<label>'+f[1]+'</label><input id="'+f[0]+'" type="number" inputmode="decimal" />';
+});
+
+html+='<button onclick="calc()">Calculate</button><div class="result" id="res"></div>';
 document.getElementById('app').innerHTML=html;
-function calc(){let expr=c.formula;c.fields.forEach(f=>{const v=parseFloat(document.getElementById(f[0]).value)||0;expr=expr.replaceAll(f[0],v)});res.textContent='$'+eval(expr).toFixed(2)}
-</script></body></html>
+
+function calc(){
+  let expr=c.formula;
+  c.fields.forEach(f=>{
+    const v=parseFloat(document.getElementById(f[0]).value)||0;
+    expr=expr.replaceAll(f[0],v);
+  });
+  const out = eval(expr);
+  const shown = (typeof out === "number" && isFinite(out)) ? out : 0;
+  document.getElementById('res').textContent = '$' + shown.toFixed(2);
+}
+</script>
+</body></html>
