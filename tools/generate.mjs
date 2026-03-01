@@ -18,9 +18,16 @@ function escHtml(s) {
     .replaceAll('"', "&quot;");
 }
 
-// Google AdSense (publisher id is real)
+// Google AdSense (your real publisher id)
 const ADSENSE = `<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9182414203594254" crossorigin="anonymous"></script>`;
+
+// Favicons (place these files in repo root)
+const FAVICON_TAGS = `
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+`.trim();
 
 // Footer (on every page)
 const SITE_FOOTER_HTML = `
@@ -35,6 +42,30 @@ const SITE_FOOTER_HTML = `
   </div>
 </footer>
 `.trim();
+
+// Auto intro text for AdSense trust + “not just generated pages”
+function toolIntro({ name, cat }) {
+  const n = name;
+  const c = cat || "General";
+
+  const base =
+    `This calculator helps you estimate results using the numbers you enter below. ` +
+    `It’s designed for quick decisions when you’re comparing costs, earnings, or profit. ` +
+    `Results are estimates and can vary depending on fees, taxes, platform rules, and other real-world factors.`;
+
+  const extraByCat = {
+    Creator:
+      " If you’re a creator, try different view/CPM assumptions to see a realistic range.",
+    Reselling:
+      " If you’re reselling, include all fees and costs so your profit estimate is realistic.",
+    "Money Basics":
+      " For money planning, use conservative numbers and treat results as a guide—not advice.",
+    "Travel & Costs":
+      " For trips and expenses, add a buffer for price changes and unexpected costs.",
+  };
+
+  return base + (extraByCat[c] || "");
+}
 
 const toolsOut = []; // {name, cat, urlPath, desc}
 const categories = {}; // {cat: [{name,urlPath,desc}]}
@@ -92,6 +123,7 @@ for (const key of Object.keys(calcs)) {
     url: fullUrl,
   };
 
+  // Tool page HTML
   const html = `<!doctype html><html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -99,6 +131,7 @@ for (const key of Object.keys(calcs)) {
 <meta name="description" content="${escHtml(desc)}">
 <link rel="canonical" href="${escHtml(fullUrl)}">
 <link rel="stylesheet" href="/style.css">
+${FAVICON_TAGS}
 ${ADSENSE}
 
 <script type="application/ld+json">${JSON.stringify(appLd)}</script>
@@ -107,6 +140,12 @@ ${ADSENSE}
 <header><a href="/">${escHtml(site.siteName)}</a></header>
 
 <div class="wrap">
+
+  <div class="card">
+    <h1 style="margin-top:0">${escHtml(name)}</h1>
+    <p class="muted">${escHtml(toolIntro({ name, cat }))}</p>
+  </div>
+
   <div class="card" id="app"></div>
 
   <div class="card">
@@ -129,6 +168,7 @@ ${ADSENSE}
     <p><a href="/tools/">All calculators (A–Z)</a></p>
     <p><a href="/">All categories</a></p>
   </div>
+
 </div>
 
 ${SITE_FOOTER_HTML}
@@ -136,8 +176,8 @@ ${SITE_FOOTER_HTML}
 <script>
 const c=${JSON.stringify(c)};
 
-let html='<h1>'+c.name+'</h1>';
-if(c.description){ html+='<p style="color:#555;margin-top:-6px">'+c.description+'</p>'; }
+let html='';
+if(c.description){ html+='<p style="color:#555;margin-top:0">'+c.description+'</p>'; }
 
 c.fields.forEach(f=>{
   html+='<label>'+f[1]+'</label><input id="'+f[0]+'" type="number" inputmode="decimal" />';
@@ -200,13 +240,15 @@ for (const cat of Object.keys(categories).sort()) {
 <meta name="description" content="Browse ${escHtml(cat)} calculators to estimate profits, earnings and costs.">
 <link rel="canonical" href="${escHtml(fullUrl)}">
 <link rel="stylesheet" href="/style.css">
+${FAVICON_TAGS}
 ${ADSENSE}
 </head><body>
 <header><a href="/">${escHtml(site.siteName)}</a></header>
+
 <div class="wrap">
   <div class="card">
     <h1>${escHtml(cat)} calculators</h1>
-    <p class="muted">Quick tools to help you decide if something is worth it.</p>
+    <p class="muted">Browse calculators in this category.</p>
   </div>
 
   <div class="card">${links}</div>
@@ -250,6 +292,7 @@ ${SITE_FOOTER_HTML}
 <meta name="description" content="Browse all ProfitCheck calculators (A–Z) and calculate instantly.">
 <link rel="canonical" href="${escHtml(fullUrl)}">
 <link rel="stylesheet" href="/style.css">
+${FAVICON_TAGS}
 ${ADSENSE}
 </head><body>
 <header><a href="/">${escHtml(site.siteName)}</a></header>
@@ -312,7 +355,6 @@ for (const cat of Object.keys(categories).sort()) {
   `;
 }
 
-// Create a JS array of all tools for homepage search
 const searchData = toolsOut.map((t) => ({
   name: t.name,
   url: t.urlPath,
@@ -325,6 +367,7 @@ const indexHtml = `<!doctype html><html><head><meta charset="utf-8">
 <meta name="description" content="Free calculators to estimate profits, earnings and costs. Search and calculate instantly.">
 <link rel="canonical" href="${escHtml(site.siteUrl)}/">
 <link rel="stylesheet" href="/style.css">
+${FAVICON_TAGS}
 ${ADSENSE}
 </head><body>
 <header>${escHtml(site.siteName)}</header>
@@ -332,6 +375,10 @@ ${ADSENSE}
 <div class="wrap">
   <div class="card">
     <h1>Money calculators</h1>
+    <p class="muted">
+      ProfitCheck is a free collection of financial decision calculators that help you estimate earnings, costs and profitability for everyday situations
+      like creator income, reselling, loans and expenses.
+    </p>
     <p class="muted">Estimate earnings, profits and costs in seconds.</p>
 
     <input id="homeSearch" class="search" placeholder="Search calculators (e.g. TikTok, eBay, loan…)" />
