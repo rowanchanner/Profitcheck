@@ -1,0 +1,34 @@
+{
+  "youtube": {
+    "name": "YouTube Earnings Calculator",
+    "fields": [
+      [
+        "views",
+        "Monthly views"
+      ],
+      [
+        "cpm",
+        "CPM ($)"
+      ]
+    ],
+    "formula": "views/1000*cpm"
+  },
+  "ebay": {
+    "name": "eBay Profit Calculator",
+    "fields": [
+      [
+        "price",
+        "Sale price"
+      ],
+      [
+        "cost",
+        "Item cost"
+      ],
+      [
+        "fee",
+        "Fee %"
+      ]
+    ],
+    "formula": "price-cost-(price*fee/100)"
+  }
+}
