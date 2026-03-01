@@ -3,28 +3,28 @@
     "name": "YouTube Earnings Calculator",
     "category": "Creator",
     "slug": "youtube-earnings",
-    "fields": [["views","Monthly views"],["cpm","CPM ($)"]],
+    "fields": [["views", "Monthly views"], ["cpm", "CPM ($)"]],
     "formula": "views/1000*cpm"
   },
   "tiktok": {
     "name": "TikTok Earnings Calculator",
     "category": "Creator",
     "slug": "tiktok-earnings",
-    "fields": [["views","Views"],["rpm","RPM ($)"]],
+    "fields": [["views", "Views"], ["rpm", "RPM ($)"]],
     "formula": "views/1000*rpm"
   },
   "twitch": {
     "name": "Twitch Sub Income Calculator",
     "category": "Creator",
     "slug": "twitch-sub-income",
-    "fields": [["subs","Subscribers"],["cut","Your % of sub"]],
+    "fields": [["subs", "Subscribers"], ["cut", "Your % of sub"]],
     "formula": "subs*4.99*(cut/100)"
   },
   "adrev": {
     "name": "Website Ad Revenue Calculator",
     "category": "Creator",
     "slug": "website-ad-revenue",
-    "fields": [["visits","Monthly visits"],["rpm","RPM ($)"]],
+    "fields": [["visits", "Monthly visits"], ["rpm", "RPM ($)"]],
     "formula": "visits/1000*rpm"
   },
 
@@ -32,35 +32,35 @@
     "name": "eBay Profit Calculator",
     "category": "Reselling",
     "slug": "ebay-profit",
-    "fields": [["price","Sale price"],["cost","Item cost"],["fee","Fee %"]],
+    "fields": [["price", "Sale price"], ["cost", "Item cost"], ["fee", "Fee %"]],
     "formula": "price-cost-(price*fee/100)"
   },
   "resell": {
     "name": "Reselling ROI Calculator",
     "category": "Reselling",
     "slug": "reselling-roi",
-    "fields": [["sell","Sell price"],["buy","Buy cost"]],
+    "fields": [["sell", "Sell price"], ["buy", "Buy cost"]],
     "formula": "(sell-buy)/buy*100"
   },
   "markup": {
     "name": "Markup Percentage Calculator",
     "category": "Reselling",
     "slug": "markup-percentage",
-    "fields": [["cost","Cost"],["sell","Sell price"]],
+    "fields": [["cost", "Cost"], ["sell", "Sell price"]],
     "formula": "(sell-cost)/cost*100"
   },
   "profitmargin": {
     "name": "Profit Margin Calculator",
     "category": "Reselling",
     "slug": "profit-margin",
-    "fields": [["revenue","Revenue"],["profit","Profit"]],
+    "fields": [["revenue", "Revenue"], ["profit", "Profit"]],
     "formula": "profit/revenue*100"
   },
   "discount": {
     "name": "Discounted Price Calculator",
     "category": "Reselling",
     "slug": "discounted-price",
-    "fields": [["price","Original price"],["pct","Discount %"]],
+    "fields": [["price", "Original price"], ["pct", "Discount %"]],
     "formula": "price*(1-pct/100)"
   },
 
@@ -68,56 +68,56 @@
     "name": "Hourly to Yearly Pay Calculator",
     "category": "Money Basics",
     "slug": "hourly-to-yearly",
-    "fields": [["hour","Hourly rate"],["hours","Hours/week"]],
+    "fields": [["hour", "Hourly rate"], ["hours", "Hours/week"]],
     "formula": "hour*hours*52"
   },
   "aftertax": {
     "name": "After Tax Salary Estimator",
     "category": "Money Basics",
     "slug": "after-tax-salary",
-    "fields": [["salary","Annual salary"],["tax","Estimated tax %"]],
+    "fields": [["salary", "Annual salary"], ["tax", "Estimated tax %"]],
     "formula": "salary*(1-tax/100)"
   },
   "loan": {
     "name": "Loan Monthly Payment Calculator",
     "category": "Money Basics",
     "slug": "loan-payment",
-    "fields": [["amount","Loan amount"],["rate","Interest % (APR)"],["years","Years"]],
+    "fields": [["amount", "Loan amount"], ["rate", "Interest % (APR)"], ["years", "Years"]],
     "formula": "amount*(rate/1200)/(1-Math.pow(1+rate/1200,-years*12))"
   },
   "savings": {
     "name": "Savings Growth Calculator",
     "category": "Money Basics",
     "slug": "savings-growth",
-    "fields": [["start","Starting amount"],["monthly","Monthly contribution"],["rate","Interest %/year"],["years","Years"]],
+    "fields": [["start", "Starting amount"], ["monthly", "Monthly contribution"], ["rate", "Interest %/year"], ["years", "Years"]],
     "formula": "start*Math.pow(1+rate/100,years)+monthly*12*years"
   },
   "commission": {
     "name": "Commission Earnings Calculator",
     "category": "Money Basics",
     "slug": "commission-earnings",
-    "fields": [["sales","Sales"],["pct","Commission %"]],
+    "fields": [["sales", "Sales"], ["pct", "Commission %"]],
     "formula": "sales*pct/100"
   },
   "breakeven": {
     "name": "Break Even Units Calculator",
     "category": "Money Basics",
     "slug": "break-even-units",
-    "fields": [["fixed","Fixed costs"],["profit","Profit per unit"]],
+    "fields": [["fixed", "Fixed costs"], ["profit", "Profit per unit"]],
     "formula": "fixed/profit"
   },
   "crypto": {
     "name": "Crypto Profit Calculator",
     "category": "Money Basics",
     "slug": "crypto-profit",
-    "fields": [["buy","Buy price"],["sell","Sell price"],["amt","Amount"]],
+    "fields": [["buy", "Buy price"], ["sell", "Sell price"], ["amt", "Amount"]],
     "formula": "(sell-buy)*amt"
   },
   "rentroi": {
     "name": "Rental ROI Calculator",
     "category": "Money Basics",
     "slug": "rental-roi",
-    "fields": [["rent","Monthly rent"],["cost","Monthly costs"],["price","Property price"]],
+    "fields": [["rent", "Monthly rent"], ["cost", "Monthly costs"], ["price", "Property price"]],
     "formula": "((rent-cost)*12)/price*100"
   },
 
@@ -125,21 +125,202 @@
     "name": "Airbnb Monthly Profit Calculator",
     "category": "Travel & Costs",
     "slug": "airbnb-profit",
-    "fields": [["night","Nightly price"],["occ","Occupied nights/month"],["cost","Monthly costs"]],
+    "fields": [["night", "Nightly price"], ["occ", "Occupied nights/month"], ["cost", "Monthly costs"]],
     "formula": "night*occ-cost"
   },
   "delivery": {
     "name": "Delivery Job Monthly Profit Calculator",
     "category": "Travel & Costs",
     "slug": "delivery-profit",
-    "fields": [["earn","Daily earnings"],["fuel","Fuel/day"],["days","Days/month"]],
+    "fields": [["earn", "Daily earnings"], ["fuel", "Fuel/day"], ["days", "Days/month"]],
     "formula": "(earn-fuel)*days"
   },
   "fuelcost": {
     "name": "Trip Fuel Cost Calculator",
     "category": "Travel & Costs",
     "slug": "trip-fuel-cost",
-    "fields": [["km","Distance (km)"],["lpk","L/100km"],["price","Fuel price per litre"]],
+    "fields": [["km", "Distance (km)"], ["lpk", "L/100km"], ["price", "Fuel price per litre"]],
     "formula": "km/100*lpk*price"
+  },
+
+  "weeklypay": {
+    "name": "Weekly Pay Calculator",
+    "category": "Salary & Work",
+    "fields": [["hour", "Hourly rate"], ["hours", "Hours worked"]],
+    "formula": "hour*hours"
+  },
+  "overtime": {
+    "name": "Overtime Pay Calculator",
+    "category": "Salary & Work",
+    "fields": [["hour", "Hourly rate"], ["hours", "Overtime hours"], ["multi", "Multiplier"]],
+    "formula": "hour*hours*multi"
+  },
+  "monthlysalary": {
+    "name": "Monthly Salary Calculator",
+    "category": "Salary & Work",
+    "fields": [["annual", "Annual salary"]],
+    "formula": "annual/12"
+  },
+  "dailywage": {
+    "name": "Daily Wage Calculator",
+    "category": "Salary & Work",
+    "fields": [["hour", "Hourly pay"], ["hours", "Hours/day"]],
+    "formula": "hour*hours"
+  },
+
+  "fuelmile": {
+    "name": "Fuel Cost Per Mile Calculator",
+    "category": "Car Costs",
+    "fields": [["price", "Fuel price per litre"], ["mpg", "MPG"]],
+    "formula": "(price*4.546)/mpg"
+  },
+  "tripcost": {
+    "name": "Car Trip Cost Calculator",
+    "category": "Car Costs",
+    "fields": [["miles", "Miles"], ["cost", "Cost per mile"]],
+    "formula": "miles*cost"
+  },
+  "carloan": {
+    "name": "Car Finance Monthly Payment Calculator",
+    "category": "Car Costs",
+    "fields": [["price", "Car price"], ["rate", "Interest %"], ["months", "Months"]],
+    "formula": "(price*(rate/100/12))/(1-Math.pow(1+rate/100/12,-months))"
+  },
+  "insurance": {
+    "name": "Monthly Insurance Cost Calculator",
+    "category": "Car Costs",
+    "fields": [["annual", "Annual cost"]],
+    "formula": "annual/12"
+  },
+
+  "vatadd": {
+    "name": "VAT Added Price Calculator",
+    "category": "Shopping",
+    "fields": [["price", "Price"], ["vat", "VAT %"]],
+    "formula": "price*(1+vat/100)"
+  },
+  "vatremove": {
+    "name": "Remove VAT Calculator",
+    "category": "Shopping",
+    "fields": [["price", "Price"], ["vat", "VAT %"]],
+    "formula": "price/(1+vat/100)"
+  },
+  "unitprice": {
+    "name": "Price Per Unit Calculator",
+    "category": "Shopping",
+    "fields": [["price", "Total price"], ["units", "Units"]],
+    "formula": "price/units"
+  },
+  "savingpercent": {
+    "name": "Savings Percentage Calculator",
+    "category": "Shopping",
+    "fields": [["old", "Old price"], ["new", "New price"]],
+    "formula": "(old-new)/old*100"
+  },
+
+  "rentsplit": {
+    "name": "Split Rent Calculator",
+    "category": "Living Costs",
+    "fields": [["rent", "Total rent"], ["people", "People"]],
+    "formula": "rent/people"
+  },
+  "budget": {
+    "name": "Remaining Budget Calculator",
+    "category": "Living Costs",
+    "fields": [["income", "Income"], ["spend", "Spending"]],
+    "formula": "income-spend"
+  },
+  "expensepercent": {
+    "name": "Expense Percentage Calculator",
+    "category": "Living Costs",
+    "fields": [["expense", "Expense"], ["income", "Income"]],
+    "formula": "(expense/income)*100"
+  },
+  "electric": {
+    "name": "Electric Bill Cost Calculator",
+    "category": "Living Costs",
+    "fields": [["kwh", "Usage kWh"], ["price", "Cost per kWh"]],
+    "formula": "kwh*price"
+  },
+
+  "stockgain": {
+    "name": "Stock Gain Calculator",
+    "category": "Investing",
+    "fields": [["buy", "Buy price"], ["sell", "Sell price"]],
+    "formula": "sell-buy"
+  },
+  "stockpercent": {
+    "name": "Stock Gain Percentage Calculator",
+    "category": "Investing",
+    "fields": [["buy", "Buy price"], ["sell", "Sell price"]],
+    "formula": "(sell-buy)/buy*100"
+  },
+  "roi": {
+    "name": "Return On Investment Calculator",
+    "category": "Investing",
+    "fields": [["profit", "Profit"], ["cost", "Cost"]],
+    "formula": "profit/cost*100"
+  },
+  "compound": {
+    "name": "Compound Interest Calculator",
+    "category": "Investing",
+    "fields": [["principal", "Start amount"], ["rate", "Interest %"], ["years", "Years"]],
+    "formula": "principal*Math.pow(1+rate/100,years)"
+  },
+
+  "markupprice": {
+    "name": "Markup Price Calculator",
+    "category": "Business",
+    "fields": [["cost", "Cost"], ["pct", "Markup %"]],
+    "formula": "cost*(1+pct/100)"
+  },
+  "breakprofit": {
+    "name": "Break Even Revenue Calculator",
+    "category": "Business",
+    "fields": [["cost", "Costs"], ["margin", "Margin %"]],
+    "formula": "cost/(margin/100)"
+  },
+  "salescommission": {
+    "name": "Sales Commission Calculator",
+    "category": "Business",
+    "fields": [["sale", "Sale amount"], ["pct", "Commission %"]],
+    "formula": "sale*pct/100"
+  },
+  "revenuegrowth": {
+    "name": "Revenue Growth Calculator",
+    "category": "Business",
+    "fields": [["old", "Old revenue"], ["new", "New revenue"]],
+    "formula": "(new-old)/old*100"
+  },
+
+  "weightprice": {
+    "name": "Cost Per Kg Calculator",
+    "category": "Everyday",
+    "fields": [["price", "Price"], ["kg", "Weight kg"]],
+    "formula": "price/kg"
+  },
+  "timepay": {
+    "name": "Pay Per Minute Calculator",
+    "category": "Everyday",
+    "fields": [["hour", "Hourly pay"]],
+    "formula": "hour/60"
+  },
+  "percentage": {
+    "name": "Percentage Calculator",
+    "category": "Everyday",
+    "fields": [["part", "Part"], ["total", "Total"]],
+    "formula": "part/total*100"
+  },
+  "increase": {
+    "name": "Percentage Increase Calculator",
+    "category": "Everyday",
+    "fields": [["old", "Old value"], ["new", "New value"]],
+    "formula": "(new-old)/old*100"
+  },
+  "decrease": {
+    "name": "Percentage Decrease Calculator",
+    "category": "Everyday",
+    "fields": [["old", "Old value"], ["new", "New value"]],
+    "formula": "(old-new)/old*100"
   }
 }
