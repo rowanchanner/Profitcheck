@@ -1,36 +1,69 @@
 <!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ProfitCheck — Money Decision Calculators</title>
-<meta name="description" content="Free calculators to estimate profits, earnings and costs. Pick a category and calculate instantly.">
+<meta name="description" content="Free calculators to estimate profits, earnings and costs. Search and calculate instantly.">
 <link rel="canonical" href="https://profitcheck.uk/">
 <link rel="stylesheet" href="/style.css">
+<!-- Google AdSense (replace ca-pub-XXXX with yours) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"></script>
 </head><body>
 <header>ProfitCheck</header>
+
 <div class="wrap">
   <div class="card">
     <h1>Money calculators</h1>
-    <p style="color:#555">Estimate earnings, profits and costs in seconds. Built for quick decisions.</p>
+    <p class="muted">Estimate earnings, profits and costs in seconds.</p>
+
+    <input id="homeSearch" class="search" placeholder="Search calculators (e.g. TikTok, eBay, loan…)" />
+    <div id="homeResults" class="results"></div>
+
+    <p class="muted" style="margin-top:12px">
+      Or browse categories below · <a href="/tools/">All calculators (A–Z)</a>
+    </p>
   </div>
+
   
     <div class="card">
       <h2 style="margin-top:0"><a href="/categories/creator/">Creator</a></h2>
       <ul style="margin:0;padding-left:18px"><li><a href="/tools/tiktok-earnings/">TikTok Earnings Calculator</a></li><li><a href="/tools/twitch-sub-income/">Twitch Sub Income Calculator</a></li><li><a href="/tools/website-ad-revenue/">Website Ad Revenue Calculator</a></li><li><a href="/tools/youtube-earnings/">YouTube Earnings Calculator</a></li></ul>
+      
     </div>
   
     <div class="card">
       <h2 style="margin-top:0"><a href="/categories/money-basics/">Money Basics</a></h2>
       <ul style="margin:0;padding-left:18px"><li><a href="/tools/after-tax-salary/">After Tax Salary Estimator</a></li><li><a href="/tools/break-even-units/">Break Even Units Calculator</a></li><li><a href="/tools/commission-earnings/">Commission Earnings Calculator</a></li><li><a href="/tools/crypto-profit/">Crypto Profit Calculator</a></li><li><a href="/tools/hourly-to-yearly/">Hourly to Yearly Pay Calculator</a></li><li><a href="/tools/loan-payment/">Loan Monthly Payment Calculator</a></li><li><a href="/tools/rental-roi/">Rental ROI Calculator</a></li><li><a href="/tools/savings-growth/">Savings Growth Calculator</a></li></ul>
+      
     </div>
   
     <div class="card">
       <h2 style="margin-top:0"><a href="/categories/reselling/">Reselling</a></h2>
       <ul style="margin:0;padding-left:18px"><li><a href="/tools/discounted-price/">Discounted Price Calculator</a></li><li><a href="/tools/ebay-profit/">eBay Profit Calculator</a></li><li><a href="/tools/markup-percentage/">Markup Percentage Calculator</a></li><li><a href="/tools/profit-margin/">Profit Margin Calculator</a></li><li><a href="/tools/reselling-roi/">Reselling ROI Calculator</a></li></ul>
+      
     </div>
   
     <div class="card">
       <h2 style="margin-top:0"><a href="/categories/travel-costs/">Travel &amp; Costs</a></h2>
       <ul style="margin:0;padding-left:18px"><li><a href="/tools/airbnb-profit/">Airbnb Monthly Profit Calculator</a></li><li><a href="/tools/delivery-profit/">Delivery Job Monthly Profit Calculator</a></li><li><a href="/tools/trip-fuel-cost/">Trip Fuel Cost Calculator</a></li></ul>
+      
     </div>
   
-</div></body></html>
+</div>
+
+<script>
+const DATA=[{"name":"After Tax Salary Estimator","url":"/tools/after-tax-salary/","cat":"Money Basics"},{"name":"Airbnb Monthly Profit Calculator","url":"/tools/airbnb-profit/","cat":"Travel & Costs"},{"name":"Break Even Units Calculator","url":"/tools/break-even-units/","cat":"Money Basics"},{"name":"Commission Earnings Calculator","url":"/tools/commission-earnings/","cat":"Money Basics"},{"name":"Crypto Profit Calculator","url":"/tools/crypto-profit/","cat":"Money Basics"},{"name":"Delivery Job Monthly Profit Calculator","url":"/tools/delivery-profit/","cat":"Travel & Costs"},{"name":"Discounted Price Calculator","url":"/tools/discounted-price/","cat":"Reselling"},{"name":"eBay Profit Calculator","url":"/tools/ebay-profit/","cat":"Reselling"},{"name":"Hourly to Yearly Pay Calculator","url":"/tools/hourly-to-yearly/","cat":"Money Basics"},{"name":"Loan Monthly Payment Calculator","url":"/tools/loan-payment/","cat":"Money Basics"},{"name":"Markup Percentage Calculator","url":"/tools/markup-percentage/","cat":"Reselling"},{"name":"Profit Margin Calculator","url":"/tools/profit-margin/","cat":"Reselling"},{"name":"Rental ROI Calculator","url":"/tools/rental-roi/","cat":"Money Basics"},{"name":"Reselling ROI Calculator","url":"/tools/reselling-roi/","cat":"Reselling"},{"name":"Savings Growth Calculator","url":"/tools/savings-growth/","cat":"Money Basics"},{"name":"TikTok Earnings Calculator","url":"/tools/tiktok-earnings/","cat":"Creator"},{"name":"Trip Fuel Cost Calculator","url":"/tools/trip-fuel-cost/","cat":"Travel & Costs"},{"name":"Twitch Sub Income Calculator","url":"/tools/twitch-sub-income/","cat":"Creator"},{"name":"Website Ad Revenue Calculator","url":"/tools/website-ad-revenue/","cat":"Creator"},{"name":"YouTube Earnings Calculator","url":"/tools/youtube-earnings/","cat":"Creator"}];
+const input=document.getElementById('homeSearch');
+const box=document.getElementById('homeResults');
+
+function render(q){
+  const qq=q.toLowerCase().trim();
+  if(!qq){ box.innerHTML=''; return; }
+  const hits=DATA.filter(x => (x.name+x.cat).toLowerCase().includes(qq)).slice(0, 10);
+  box.innerHTML = hits.map(h => 
+    '<div class="hit"><a href="'+h.url+'">'+h.name+'</a><div class="muted">'+h.cat+'</div></div>'
+  ).join('');
+}
+
+input.addEventListener('input', ()=>render(input.value));
+</script>
+
+</body></html>

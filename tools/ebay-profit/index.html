@@ -5,11 +5,11 @@
 <meta name="description" content="Use the eBay Profit Calculator to estimate results instantly. Free online calculator.">
 <link rel="canonical" href="https://profitcheck.uk/tools/ebay-profit/">
 <link rel="stylesheet" href="/style.css">
-
 <!-- Google AdSense (replace ca-pub-XXXX with yours) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"eBay Profit Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://profitcheck.uk/tools/ebay-profit/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the eBay Profit Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your numbers and press Calculate. The tool uses the formula shown by its inputs to estimate a result instantly."}},{"@type":"Question","name":"Is this calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — all calculators on this site are free."}},{"@type":"Question","name":"Are these results exact?","acceptedAnswer":{"@type":"Answer","text":"They’re estimates. Real-world results can vary based on fees, taxes, platform rules, location, and other costs."}}]}</script>
 </head><body>
 <header><a href="/">ProfitCheck</a></header>
 
@@ -17,14 +17,21 @@
   <div class="card" id="app"></div>
 
   <div class="card">
+    <h2>FAQ</h2>
+    <details><summary><strong>How does the eBay Profit Calculator work?</strong></summary><p style="color:#555">Enter your numbers and press Calculate. The tool uses the formula shown by its inputs to estimate a result instantly.</p></details><details><summary><strong>Is this calculator free to use?</strong></summary><p style="color:#555">Yes — all calculators on this site are free.</p></details><details><summary><strong>Are these results exact?</strong></summary><p style="color:#555">They’re estimates. Real-world results can vary based on fees, taxes, platform rules, location, and other costs.</p></details>
+  </div>
+
+  <div class="card">
     <h2>More calculators</h2>
     <p><a href="/categories/reselling/">Reselling calculators</a></p>
+    <p><a href="/tools/">All calculators (A–Z)</a></p>
     <p><a href="/">All categories</a></p>
   </div>
 </div>
 
 <script>
 const c={"name":"eBay Profit Calculator","category":"Reselling","slug":"ebay-profit","fields":[["price","Sale price"],["cost","Item cost"],["fee","Fee %"]],"formula":"price-cost-(price*fee/100)"};
+
 let html='<h1>'+c.name+'</h1>';
 if(c.description){ html+='<p style="color:#555;margin-top:-6px">'+c.description+'</p>'; }
 
