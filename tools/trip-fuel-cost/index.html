@@ -5,6 +5,9 @@
 <meta name="description" content="Use the Trip Fuel Cost Calculator to estimate results instantly. Free online calculator.">
 <link rel="canonical" href="https://profitcheck.uk/tools/trip-fuel-cost/">
 <link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9182414203594254" crossorigin="anonymous"></script>
 
@@ -14,6 +17,12 @@
 <header><a href="/">ProfitCheck</a></header>
 
 <div class="wrap">
+
+  <div class="card">
+    <h1 style="margin-top:0">Trip Fuel Cost Calculator</h1>
+    <p class="muted">This calculator helps you estimate results using the numbers you enter below. It’s designed for quick decisions when you’re comparing costs, earnings, or profit. Results are estimates and can vary depending on fees, taxes, platform rules, and other real-world factors. For trips and expenses, add a buffer for price changes and unexpected costs.</p>
+  </div>
+
   <div class="card" id="app"></div>
 
   <div class="card">
@@ -27,6 +36,7 @@
     <p><a href="/tools/">All calculators (A–Z)</a></p>
     <p><a href="/">All categories</a></p>
   </div>
+
 </div>
 
 <footer class="site-footer">
@@ -43,8 +53,8 @@
 <script>
 const c={"name":"Trip Fuel Cost Calculator","category":"Travel & Costs","slug":"trip-fuel-cost","fields":[["km","Distance (km)"],["lpk","L/100km"],["price","Fuel price per litre"]],"formula":"km/100*lpk*price"};
 
-let html='<h1>'+c.name+'</h1>';
-if(c.description){ html+='<p style="color:#555;margin-top:-6px">'+c.description+'</p>'; }
+let html='';
+if(c.description){ html+='<p style="color:#555;margin-top:0">'+c.description+'</p>'; }
 
 c.fields.forEach(f=>{
   html+='<label>'+f[1]+'</label><input id="'+f[0]+'" type="number" inputmode="decimal" />';
