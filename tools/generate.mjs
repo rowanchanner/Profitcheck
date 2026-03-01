@@ -18,9 +18,23 @@ function escHtml(s) {
     .replaceAll('"', "&quot;");
 }
 
-// AdSense placeholder
-const ADSENSE = `<!-- Google AdSense (replace ca-pub-XXXX with yours) -->
+// Google AdSense (publisher id is real)
+const ADSENSE = `<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9182414203594254" crossorigin="anonymous"></script>`;
+
+// Footer (on every page)
+const SITE_FOOTER_HTML = `
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">© 2026 ProfitCheck.uk</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+`.trim();
 
 const toolsOut = []; // {name, cat, urlPath, desc}
 const categories = {}; // {cat: [{name,urlPath,desc}]}
@@ -42,7 +56,6 @@ for (const key of Object.keys(calcs)) {
     `Use the ${name} to estimate results instantly. Free online calculator.`;
 
   // ---- Auto FAQ (on every tool) ----
-  // Keep these generic so they always make sense.
   const faq = [
     {
       question: `How does the ${name} work?`,
@@ -117,6 +130,8 @@ ${ADSENSE}
     <p><a href="/">All categories</a></p>
   </div>
 </div>
+
+${SITE_FOOTER_HTML}
 
 <script>
 const c=${JSON.stringify(c)};
@@ -199,7 +214,11 @@ ${ADSENSE}
   <div class="card">
     <a href="/tools/">All calculators (A–Z)</a> · <a href="/">All categories</a>
   </div>
-</div></body></html>`;
+</div>
+
+${SITE_FOOTER_HTML}
+
+</body></html>`;
 
   fs.writeFileSync(path.join(dir, "index.html"), html);
 }
@@ -249,6 +268,8 @@ ${ADSENSE}
   </div>
 </div>
 
+${SITE_FOOTER_HTML}
+
 <script>
 const input=document.getElementById('search');
 const rows=[...document.querySelectorAll('.tool-row')];
@@ -291,7 +312,7 @@ for (const cat of Object.keys(categories).sort()) {
   `;
 }
 
-// Create a JS array of all tools for homepage search (client-side, fast)
+// Create a JS array of all tools for homepage search
 const searchData = toolsOut.map((t) => ({
   name: t.name,
   url: t.urlPath,
@@ -323,6 +344,8 @@ ${ADSENSE}
 
   ${homeBlocks}
 </div>
+
+${SITE_FOOTER_HTML}
 
 <script>
 const DATA=${JSON.stringify(searchData)};
