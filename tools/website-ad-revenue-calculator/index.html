@@ -1,0 +1,18 @@
+<!doctype html><html><head>
+<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Website Ad Revenue Calculator - ProfitCheck</title>
+<meta name=description content="Use the Website Ad Revenue Calculator to calculate instantly online.">
+<link rel=stylesheet href=/style.css>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Website Ad Revenue Calculator","applicationCategory":"FinanceApplication"}</script>
+</head><body>
+<header><a href="/">ProfitCheck</a></header>
+<div class=wrap><div class=card id=app></div></div>
+<script>
+const c={"name":"Website Ad Revenue Calculator","fields":[["visits","Monthly visits"],["rpm","RPM ($)"]],"formula":"visits/1000*rpm"};
+let html='<h1>'+c.name+'</h1>';
+c.fields.forEach(f=>html+='<label>'+f[1]+'</label><input id="'+f[0]+'" type=number>');
+html+='<button onclick=calc()>Calculate</button><div class=result id=res></div>';
+document.getElementById('app').innerHTML=html;
+function calc(){let expr=c.formula;c.fields.forEach(f=>{const v=parseFloat(document.getElementById(f[0]).value)||0;expr=expr.replaceAll(f[0],v)});res.textContent='$'+eval(expr).toFixed(2)}
+</script></body></html>
