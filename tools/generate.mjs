@@ -24,9 +24,9 @@ const ADSENSE = `<!-- Google AdSense -->
 
 // Favicons (place these files in repo root)
 const FAVICON_TAGS = `
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 `.trim();
 
 // Footer (on every page)
