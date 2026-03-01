@@ -20,7 +20,7 @@ function escHtml(s) {
 
 // Google AdSense (your real publisher id)
 const ADSENSE = `<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9182414203594254" crossorigin="anonymous"></script>`;
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-f08c47fec0942fa0" crossorigin="anonymous"></script>`;
 
 // Favicons (place these files in repo root)
 const FAVICON_TAGS = `
