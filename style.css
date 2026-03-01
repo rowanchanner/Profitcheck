@@ -14,3 +14,32 @@ a{text-decoration:none;color:#0a7cff}
 .hit a{font-weight:700;color:#0a7cff}
 .tool-row{margin:0 0 14px 0}
 .tool-row a{font-weight:700}
+/* --- Site Footer --- */
+.site-footer{
+  margin-top:40px;
+  padding:20px 0;
+  background:#f3f4f6;
+  border-top:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+.footer-inner{
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.footer-brand{ color:#111827; font-weight:600; }
+
+.footer-links a{
+  margin-left:16px;
+  color:#2563eb;
+  text-decoration:none;
+}
+
+.footer-links a:hover{ text-decoration:underline; }
