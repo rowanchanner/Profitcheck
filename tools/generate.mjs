@@ -20,7 +20,7 @@ function escHtml(s) {
 
 // AdSense placeholder
 const ADSENSE = `<!-- Google AdSense (replace ca-pub-XXXX with yours) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"></script>`;
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9182414203594254" crossorigin="anonymous"></script>`;
 
 const toolsOut = []; // {name, cat, urlPath, desc}
 const categories = {}; // {cat: [{name,urlPath,desc}]}
